@@ -24,7 +24,8 @@ Setup
 
 * dashing gem installation
 * provides init/upstart service management scripts
-* download and setup of dashing dashboards
+* configuration files under /etc/dashing.conf and /etc/dashing.d (by default)
+* storing dashing instances under /usr/share/dashing (by default)
 
 ### Beginning
 
