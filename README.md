@@ -90,7 +90,7 @@ All contributions more than welcome, just send pull requests.
 License
 -------
 
-GPLv2 (check LICENSE).
+GPLv3 (check LICENSE).
 
 Contributors
 ------------
