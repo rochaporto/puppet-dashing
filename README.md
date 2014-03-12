@@ -1,9 +1,9 @@
-dashing
+puppet-dashing
 =======
 
 ## Description
 
-Provides definitions to deal with dashing.
+Provides puppet classes and definitions to deal with dashing.
 
 ==============
 
@@ -100,4 +100,4 @@ Ricardo Rocha <ricardo@catalyst.net.nz>
 Support
 -------
 
-Please log tickets and issues at the [github home](https://github.com/rochaporto/puppet-dashing)
+Please log tickets and issues at the [github home](https://github.com/rochaporto/puppet-dashing/issues).

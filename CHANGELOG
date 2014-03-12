@@ -1,0 +1,13 @@
+0.1.0
+=====
+
+Summary:
+
+Initial release.
+
+Features:
+- Installation of dashing gem
+- Provides upstart scripts for service management
+- Installation of dashing instances (via remote targz download)
+
+Bugfixes:
