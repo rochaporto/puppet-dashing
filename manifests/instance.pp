@@ -3,10 +3,17 @@
 # Configuration for a specific dashing instance.
 #
 # === Parameters
-#
-# === Variables
+#  [*targz*]            - url of the targz containing the dashing instance
+#  [*dashing_port*]     - port to run the service under (default '3030')
+#  [*dashing_dir*]      - local directory to store the dashing instance (default $dashing::dashing_basepath/$name)
+#  [*strip_parent_dir*] - should the parent directory of the targz be stripped (default true)
 #
 # === Examples
+#
+#  dashing::instance {'ceph':
+#    targz => 'https://github.com/rochaporto/dashing-ceph/tarball/master',
+#    port  => '3030',
+#  }
 #
 define dashing::instance (
   $targz,

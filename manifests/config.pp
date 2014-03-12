@@ -2,9 +2,7 @@
 #
 # Configuration for the dashing service.
 #
-# === Parameters
-#
-# === Variables
+# === Parameters: None
 #
 # === Examples
 #

@@ -2,9 +2,7 @@
 #
 # This class enforces running of the dashing service.
 #
-# === Parameters
-#
-# === Variables
+# === Parameters: None
 #
 # === Examples
 #

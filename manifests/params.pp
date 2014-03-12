@@ -2,9 +2,7 @@
 #
 # This defines default configuration values for dashing.  You don't want to use it directly.
 #
-# === Parameters
-#
-# === Variables
+# === Parameters: None
 #
 # === Examples
 #

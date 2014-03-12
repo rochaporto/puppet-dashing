@@ -2,9 +2,7 @@
 #
 # This class makes sure that the required packages are installed.
 #
-# === Parameters
-#
-# === Variables
+# === Parameters: None
 #
 # === Examples
 #
