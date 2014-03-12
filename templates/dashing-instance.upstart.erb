@@ -20,7 +20,7 @@ script
         pidfile="/var/run/dashing/${name}.pid"
         . $CONFIG
         cd $DASHING_DIR
-        start-stop-daemon --pidfile "$pidfile" --start --quiet --chuid $DASHING_RUNUSER --chdir $DASHING_DIR --exec <%= scope.lookupvar('dashing::dashing_binary') %> start -p $DASHING_PORT
+        start-stop-daemon --pidfile "$pidfile" --start --quiet --chuid $DASHING_RUNUSER --chdir $DASHING_DIR --exec <%= scope.lookupvar('dashing::dashing_binary') %> start -- -p $DASHING_PORT
     fi
 end script
  
