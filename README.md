@@ -20,7 +20,7 @@ dashing is a Sinatra based framework that lets you build beautiful dashboards.
 Setup
 -----
 
-**What dashing affects:**
+**What puppet-dashing affects:**
 
 * dashing gem installation
 * provides init/upstart service management scripts
