@@ -17,23 +17,41 @@ class dashing::install {
     mode   => 0644,
   }
 
-  package {$dashing::dashing_package_name:
-    ensure   => $dashing::package_status,
-    provider => 'gem',
-    require  => Package['rubygems'],
-  }
-
   if !defined(Package['nodejs']) {
     package {'nodejs':
       ensure => installed,
     }
   }
-
-  if !defined(Package['rubygems']) {
-    package {'rubygems':
-      ensure  => installed,
+  
+  if $::lsbdistcodename != 'trusty' {
+    
+    package {$dashing::dashing_package_name:
+      ensure   => $dashing::package_status,
+      provider => 'gem',
+      require  => Package['rubygems'],
+    }
+    
+    if !defined(Package['rubygems']) {
+      package {'rubygems':
+        ensure  => installed,
+      }
     }
   }
+  else {
+    package {$dashing::dashing_package_name:
+      ensure   => $dashing::package_status,
+      provider => 'gem',
+      require  => Package['ruby'],
+    }
+    
+    if !defined(Package['ruby']) {
+      package {'ruby':
+        ensure  => installed,
+      }
+    }
+  }
+  
+  
 
   if !defined(Package['ruby-bundler']) {
     package {'ruby-bundler':
