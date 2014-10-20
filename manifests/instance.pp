@@ -44,7 +44,13 @@ define dashing::instance (
     unless  => "/bin/ls $dashing::dashing_basepath/$name/dashboards",
     notify  => Service[$dashing::service_name],
   }
+  
+  exec {"run-bundle-install":
+    command => "/usr/bin/bundle install",
+    cwd => "$dashing_dir",
+    notify  => Service[$dashing::service_name],
+  }
 
-  File["/etc/dashing.d/${name}.conf"] -> File[$dashing_dir] -> Exec["dashing-get-$name"]
+  File["/etc/dashing.d/${name}.conf"] -> File[$dashing_dir] -> Exec["dashing-get-$name"] -> Exec["run-bundle-install"]
 
 }
