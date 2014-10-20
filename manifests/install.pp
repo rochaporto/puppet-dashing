@@ -36,6 +36,12 @@ class dashing::install {
         ensure  => installed,
       }
     }
+    
+    if !defined(Package['ruby-bundler']) {
+      package {'ruby-bundler':
+        ensure => installed,
+      }
+    }
   }
   else {
     package {$dashing::dashing_package_name:
@@ -49,13 +55,11 @@ class dashing::install {
         ensure  => installed,
       }
     }
-  }
-  
-  
-
-  if !defined(Package['ruby-bundler']) {
-    package {'ruby-bundler':
-      ensure => installed,
+    
+    if !defined(Package['bundler']) {
+      package {'bundler':
+        ensure => installed,
+      }
     }
   }
 
