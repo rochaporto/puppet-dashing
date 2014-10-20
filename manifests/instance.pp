@@ -42,7 +42,7 @@ define dashing::instance (
   exec {"dashing-get-$name":
     command => "/usr/bin/wget $targz -O /tmp/$name.tar.gz; /bin/tar -zxvf /tmp/$name.tar.gz -C $dashing_dir $strip_parent_cmd; /bin/rm /tmp/$name.tar.gz",
     unless  => "/bin/ls $dashing::dashing_basepath/$name/dashboards",
-    notify  => Service[$dashing::service_name],
+    notify  => [ Service[$dashing::service_name],Exec["run-bundle-install"] ]
   }
   
   exec {"run-bundle-install":
@@ -51,6 +51,6 @@ define dashing::instance (
     notify  => Service[$dashing::service_name],
   }
 
-  File["/etc/dashing.d/${name}.conf"] -> File[$dashing_dir] -> Exec["dashing-get-$name"] -> Exec["run-bundle-install"]
+  File["/etc/dashing.d/${name}.conf"] -> File[$dashing_dir] -> Exec["dashing-get-$name"]
 
 }
