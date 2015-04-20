@@ -71,7 +71,7 @@ class dashing::install {
       refreshonly => true,
     }
 
-    Package['libaugeas-ruby1.9.1'] -> Package['rubygems-integration'] ~> Exec['update-ruby-1.9.3'] -> Package[$dashing::dashing_package_name]
+    Package['libaugeas-ruby1.9.1'] -> Package['bundler'] -> Package['rubygems-integration'] -> Exec['update-ruby-1.9.3'] -> Package[$dashing::dashing_package_name]
 
   }
 
