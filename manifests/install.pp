@@ -23,12 +23,6 @@ class dashing::install {
     require  => Package['rubygems-integration'],
   }
 
-  if !defined(Package['nodejs']) {
-    package {'nodejs':
-      ensure => installed,
-    }
-  }
-
   if !defined(Package['rubygems-integration']) {
     package {'rubygems-integration':
       ensure  => installed,
