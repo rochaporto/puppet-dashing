@@ -34,6 +34,11 @@ class dashing::install {
       ensure  => installed,
     }
   }
+  if !defined(Package['ruby-dev']) {
+    package {'ruby-dev':
+      ensure  => installed,
+    }
+  }
 
   if !defined(Package['bundler']) {
     package {'ruby':
