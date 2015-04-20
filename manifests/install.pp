@@ -35,9 +35,11 @@ class dashing::install {
     }
   }
 
-  if !defined(Package['ruby-bundler']) {
-    package {'ruby-bundler':
+  if !defined(Package['bundler']) {
+    package {'ruby':
       ensure => installed,
+      provider => 'gem',
+
     }
   }
 
