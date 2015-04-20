@@ -10,10 +10,10 @@
 #
 # === Examples
 #
-dashing::instance {'ceph':
-    targz => 'https://github.com/rochaporto/dashing-ceph/tarball/master',
-    port  => '3030',
-}
+#dashing::instance {'ceph':
+#    targz => 'https://github.com/rochaporto/dashing-ceph/tarball/master',
+#    port  => '3030',
+#}
 #
 define dashing::instance (
   $targz,
