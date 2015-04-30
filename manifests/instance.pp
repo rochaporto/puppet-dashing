@@ -41,7 +41,7 @@ define dashing::instance (
   }
   exec {"dashing-get-$name":
     command => "/usr/bin/wget $targz -O /tmp/$name.tar.gz; /bin/tar -zxvf /tmp/$name.tar.gz -C $dashing_dir $strip_parent_cmd; /bin/rm /tmp/$name.tar.gz",
-    unless  => "/bin/ls $dashing::dashing_basepath/$name/dashboards",
+    unless  => "/bin/ls $dashing_dir/dashboards",
     notify  => Service[$dashing::service_name],
   }
 
