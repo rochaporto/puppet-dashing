@@ -78,6 +78,18 @@ Expects a targz location (gets extracted into `$dashing::dashing_basepath`), and
 
 You should have `port` being different for each `dashing::instance` (but the actual instance might have multiple dashboards).
 
+### dashing::instance::local
+
+Handles the configuration of a local dashing dashboard.  Using this requires you to manage the source of your dashing dashboard via other means; be it through another puppet module, or manually.
+
+    dashing::instance::local {'ceph':
+      dashing_port     => '3030',
+      dashing_dir      => '/usr/local/share/dashboards,
+    }
+
+You should have `port` being different for each `dashing::instance` (but the actual instance might have multiple dashboards).
+
+
 Limitations
 -----------
 

@@ -48,3 +48,26 @@ define dashing::instance (
   File["/etc/dashing.d/${name}.conf"] -> File[$dashing_dir] -> Exec["dashing-get-$name"]
 
 }
+
+define dashing::instance::local (
+  $dashing_port = '3030',
+  $dashing_dir = "$dashing::dashing_basepath/$name",
+) {
+
+  file {"/etc/dashing.d/${name}.conf":
+    content => template('dashing/instance.conf.erb'),
+    owner   => $dashing::run_user,
+    group   => $dashing::run_group,
+    mode    => '0644',
+  }
+
+  file {$dashing_dir:
+    ensure => directory,
+    owner   => $dashing::run_user,
+    group   => $dashing::run_group,
+    mode    => '0644',
+  }
+
+  File["/etc/dashing.d/${name}.conf"] -> File[$dashing_dir]
+
+}
