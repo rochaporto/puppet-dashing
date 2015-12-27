@@ -20,24 +20,31 @@ class dashing::install {
   package {$dashing::dashing_package_name:
     ensure   => $dashing::package_status,
     provider => 'gem',
-    require  => Package['rubygems'],
+    require  => Package['rubygems-integration'],
   }
 
-  if !defined(Package['nodejs']) {
-    package {'nodejs':
-      ensure => installed,
+  if !defined(Package['rubygems-integration']) {
+    package {'rubygems-integration':
+      ensure  => installed,
     }
   }
+  if !defined(Package['nodejs']) {		
+    package {'nodejs':		
+      ensure => installed,		
+    }		
+  }		
 
-  if !defined(Package['rubygems']) {
-    package {'rubygems':
+  if !defined(Package['ruby-dev']) {
+    package {'ruby-dev':
       ensure  => installed,
     }
   }
 
-  if !defined(Package['ruby-bundler']) {
-    package {'ruby-bundler':
+  if !defined(Package['bundle']) {
+    package {'bundle':
       ensure => installed,
+      provider => 'gem',
+
     }
   }
 
@@ -64,7 +71,7 @@ class dashing::install {
       refreshonly => true,
     }
 
-    Package['libaugeas-ruby1.9.1'] -> Package['rubygems'] ~> Exec['update-ruby-1.9.3'] -> Package[$dashing::dashing_package_name]
+    Package['libaugeas-ruby1.9.1'] -> Package['bundle'] -> Package['rubygems-integration'] -> Exec['update-ruby-1.9.3'] -> Package[$dashing::dashing_package_name]
 
   }
 
